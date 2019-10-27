@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/activity_margin"
+    tools:context=".activity.RoleManagementActivity">
+
+    <TextView
+        android:id="@+id/labelQuickQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:gravity="center"
+        android:text="Answer 1 Quick Question"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/labelQuickQuestion"
+        android:gravity="center"
+        android:text="Which of the following best describes you"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rlTeamOwner"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="@dimen/activity_margin"
+        android:layout_marginEnd="@dimen/activity_margin"
+        android:background="@drawable/bg_semi_rounded_blue"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/labelTeamOwner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="I manage my team (Owner)"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/colorWhite" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/labelTeamOwner"
+            android:layout_toStartOf="@+id/imageViewTeamOwner"
+            android:layout_toLeftOf="@+id/imageViewTeamOwner"
+            android:text="I want to track my team with time and tasks"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="@color/colorWhite" />
+
+        <ImageView
+            android:id="@+id/imageViewTeamOwner"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            app:srcCompat="@drawable/ic_keyboard_arrow_right" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlTeamMember"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rlTeamOwner"
+        android:layout_margin="@dimen/activity_margin"
+        android:background="@drawable/bg_semi_rounded_blue"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/labelTeamMember"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="I am a team member (Member)"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/colorWhite" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/labelTeamMember"
+            android:layout_toStartOf="@+id/imgViewTeamMember"
+            android:layout_toLeftOf="@+id/imgViewTeamMember"
+            android:text="My leader want to track my time and tasks"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="@color/colorWhite" />
+
+        <ImageView
+            android:id="@+id/imgViewTeamMember"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            app:srcCompat="@drawable/ic_keyboard_arrow_right" />
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>
