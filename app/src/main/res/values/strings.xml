@@ -1,4 +1,14 @@
 <resources>
     <string name="app_name">Trackie Kotlin App</string>
     <string name="title_activity_login">LoginActivity</string>
+    <string name="loading">Loading...</string>
+    <string name="close">Close</string>
+
+
+    <!--InfoBip-->
+    <string name="info_bip_app_id">05E3BEB01E25769D743C0C853FA5C139</string>
+    <string name="info_bip_message_id_en">6AAE7B3CBC152F6C09D4C0ABC665CD32</string>
+    <string name="info_bip_apiKey">1488a2f55c4d83739083f779821e55e0-fd8c45d1-cc8a-45e1-9d2b-535e6cc88e38</string>
+    <string name="info_bip_">Basic bXV2LmFzaWE6QnNtNEhYZVNSZFYyZUpwcQ==</string>
+    <string name="title_activity_registration">RegistrationActivity</string>
 </resources>

@@ -2,6 +2,10 @@ package com.arafat.trackiekotlinapp.constants
 
 class ApiConstants {
 
+    /*Info Bip Base Url*/
+    val INFO_BIP_BASE_URL : String = "https://kw2w8.api.infobip.com/"
+    val INFO_BIP_PIN = INFO_BIP_BASE_URL + "2fa/1/pin"
+
     private val API_DOMAIN = "https://trackieapi.muvasia.site/api/v1/" //TEST
     //private static final String API_DOMAIN = "https://trackieapi.muv.asia/api/v1/"; //LIVE
 

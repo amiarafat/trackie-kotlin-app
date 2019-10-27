@@ -3,6 +3,7 @@
     package="com.arafat.trackiekotlinapp">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -20,7 +21,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.TeamMemberInvitationActivity"></activity>
+        <activity
+            android:name=".activity.RegistrationActivity"
+            android:label="@string/title_activity_registration"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".activity.TeamMemberInvitationActivity" />
         <activity android:name=".activity.TeamOwnerInvitationActivity" />
         <activity android:name=".activity.RoleManagementActivity" />
         <activity android:name=".activity.HomeActivity" />
