@@ -1,6 +1,6 @@
 package com.arafat.trackiekotlinapp.constants
 
-internal object AppConstant {
+class AppConstant {
     //shared pref
     val USER_SHARED_PREF = "userSharedPref"
     val USER_SHARED_PREF_PHONE = "user_phone_number"

@@ -21,12 +21,12 @@ open class BaseActivity() : AppCompatActivity(){
     private lateinit var mProgressDialog: ProgressDialog
     internal var context: Context = this
     open lateinit var sharedPreferences: SharedPreferences
-    lateinit var sharedPrefManager: SharedPrefManager
+    open lateinit var sharedPrefManager: SharedPrefManager
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        sharedPreferences = getSharedPreferences(AppConstant.USER_SHARED_PREF, Context.MODE_PRIVATE)
+        sharedPreferences = getSharedPreferences(AppConstant().USER_SHARED_PREF, Context.MODE_PRIVATE)
 
         mProgressDialog = ProgressDialog(this)
         mProgressDialog.setIndeterminate(true)

@@ -2,22 +2,19 @@ package com.arafat.trackiekotlinapp.helper
 
 import android.content.Context
 import android.content.SharedPreferences
-import android.media.MediaCodec.MetricsConstants.MODE
-import com.arafat.trackiekotlinapp.constants.AppConstant.USER_PREF_ROLE
-import com.arafat.trackiekotlinapp.constants.AppConstant.USER_SHARED_PREF_ACCESS_TOKEN
-import com.arafat.trackiekotlinapp.constants.AppConstant.USER_SHARED_PREF_ONLINE_STATUS
+import com.arafat.trackiekotlinapp.constants.AppConstant
 
 class SharedPrefManager{
 
-    lateinit var userPref : SharedPreferences;
-    lateinit var pref : SharedPreferences;
+     val userPref : SharedPreferences
+     val pref : SharedPreferences
 
-    lateinit var editor: SharedPreferences.Editor;
-    lateinit var editorUser: SharedPreferences.Editor;
+     val editor: SharedPreferences.Editor
+     val editorUser: SharedPreferences.Editor
 
-    lateinit var _context : Context;
+     val context : Context
 
-    val PRIVATE_MODE = 0;
+    val PRIVATE_MODE = 0
 
     // Shared preferences file name
     private val PREF_NAME_TRACKIE_INTRO = "trackie-welcome"
@@ -27,10 +24,10 @@ class SharedPrefManager{
     private val IS_USER_ROLE_SET = "isUserRoleSet"
 
 
-    constructor(_context: Context) {
-        this._context = _context
-        pref = _context.getSharedPreferences(PREF_NAME_TRACKIE_INTRO, PRIVATE_MODE)
-        userPref = _context.getSharedPreferences(PREF_NAME_TRACKIE_USER, PRIVATE_MODE)
+    constructor(context: Context) {
+        this.context = context
+        pref = context.getSharedPreferences(PREF_NAME_TRACKIE_INTRO, PRIVATE_MODE)
+        userPref = context.getSharedPreferences(PREF_NAME_TRACKIE_USER, PRIVATE_MODE)
         editor = pref.edit()
         editorUser = userPref.edit()
     }
@@ -55,7 +52,7 @@ class SharedPrefManager{
      * set user role
      */
     fun setUserRole(userRole: String) {
-        editorUser.putString(USER_PREF_ROLE, userRole)
+        editorUser.putString(AppConstant().USER_PREF_ROLE, userRole)
         editorUser.commit()
     }
 
@@ -63,7 +60,7 @@ class SharedPrefManager{
     *Get User Role
     */
     fun  getUserRole(): String {
-        return userPref.getString(USER_PREF_ROLE,"").toString()
+        return userPref.getString(AppConstant().USER_PREF_ROLE,"").toString()
     }
 
     /*
@@ -71,7 +68,7 @@ class SharedPrefManager{
     * */
     fun setUserAccessToken(accessToken:String){
 
-        editorUser.putString(USER_SHARED_PREF_ACCESS_TOKEN,accessToken);
+        editorUser.putString(AppConstant().USER_SHARED_PREF_ACCESS_TOKEN,accessToken);
         editorUser.commit();
     }
 
@@ -80,7 +77,7 @@ class SharedPrefManager{
     * */
     fun getUserAccessToken(): String {
 
-        return userPref.getString(USER_SHARED_PREF_ACCESS_TOKEN,"").toString()
+        return userPref.getString(AppConstant().USER_SHARED_PREF_ACCESS_TOKEN,"").toString()
 
     }
 
@@ -88,7 +85,7 @@ class SharedPrefManager{
     * set User Online Status*/
     fun setUserOnlineStatus(status: String) {
 
-        editorUser.putString(USER_SHARED_PREF_ONLINE_STATUS, status)
+        editorUser.putString(AppConstant().USER_SHARED_PREF_ONLINE_STATUS, status)
         editorUser.commit()
     }
 
@@ -98,7 +95,7 @@ class SharedPrefManager{
 
     fun getUserOnlineStatus(): String {
 
-        return userPref.getString(USER_SHARED_PREF_ONLINE_STATUS, "").toString()
+        return userPref.getString(AppConstant().USER_SHARED_PREF_ONLINE_STATUS, "").toString()
     }
 
     fun deleteSharedPrefManager() {

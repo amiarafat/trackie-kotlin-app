@@ -63,7 +63,7 @@ class LoginActivity : BaseActivity() {
 
     private fun initView() {
 
-        sharedPreferences = getSharedPreferences(AppConstant.USER_SHARED_PREF, Context.MODE_PRIVATE)
+        sharedPreferences = getSharedPreferences(AppConstant().USER_SHARED_PREF, Context.MODE_PRIVATE)
 
         llPhone = findViewById(R.id.llPhone) as LinearLayout
         llPin = findViewById(R.id.llPin) as LinearLayout
@@ -207,7 +207,7 @@ class LoginActivity : BaseActivity() {
 
                 if(response.has("errors")){
 
-                    val jError:JSONObject = JSONObject(response.getString(AppConstant.ERRORS))
+                    val jError:JSONObject = JSONObject(response.getString(AppConstant().ERRORS))
 
                     if (jError.getString("registered") == "false") {
 
@@ -220,16 +220,16 @@ class LoginActivity : BaseActivity() {
                     }
                 }else{
 
-                    val code = response.getInt(AppConstant.CODE)
+                    val code = response.getInt(AppConstant().CODE)
                     if(code == 200){
 
-                        val data = response.getString(AppConstant.DATA)
+                        val data = response.getString(AppConstant().DATA)
                         val jData = JSONObject(data)
-                        val Token = jData.getString(AppConstant.TOKEN)
+                        val Token = jData.getString(AppConstant().TOKEN)
 
                         val spEdit = sharedPreferences.edit()
-                        spEdit.putString(AppConstant.USER_SHARED_PREF_PHONE, msisdn)
-                        spEdit.putString(AppConstant.USER_SHARED_PREF_ACCESS_TOKEN, Token)
+                        spEdit.putString(AppConstant().USER_SHARED_PREF_PHONE, msisdn)
+                        spEdit.putString(AppConstant().USER_SHARED_PREF_ACCESS_TOKEN, Token)
                         spEdit.apply()
                         spEdit.commit()
 

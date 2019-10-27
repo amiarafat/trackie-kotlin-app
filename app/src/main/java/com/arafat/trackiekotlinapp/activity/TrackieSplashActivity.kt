@@ -25,7 +25,6 @@ import com.arafat.trackiekotlinapp.BuildConfig
 import com.arafat.trackiekotlinapp.R
 import com.arafat.trackiekotlinapp.constants.ApiConstants
 import com.arafat.trackiekotlinapp.constants.AppConstant
-import com.arafat.trackiekotlinapp.constants.AppConstant.USER_SHARED_PREF_ACCESS_TOKEN
 import com.arafat.trackiekotlinapp.helper.SharedPrefManager
 import kotlinx.android.synthetic.main.activity_trackie_splash.*
 import org.json.JSONObject
@@ -75,7 +74,7 @@ import org.json.JSONObject
     }
 
     private fun initView() {
-        UserPref = getSharedPreferences(AppConstant.USER_SHARED_PREF, Context.MODE_PRIVATE)
+        UserPref = getSharedPreferences(AppConstant().USER_SHARED_PREF, Context.MODE_PRIVATE)
         sharedPrefManager = SharedPrefManager(this)
 
     }
@@ -90,7 +89,7 @@ import org.json.JSONObject
 
     private fun getUserPref(){
 
-        UserAccessToken = UserPref.getString(USER_SHARED_PREF_ACCESS_TOKEN,"").toString()
+        UserAccessToken = UserPref.getString(AppConstant().USER_SHARED_PREF_ACCESS_TOKEN,"").toString()
         userRole = sharedPrefManager.getUserRole()
         Log.d("$TAG UserAccessToken - ", "$UserAccessToken  userRole - $userRole")
 
@@ -118,18 +117,18 @@ import org.json.JSONObject
                         Response.Listener { response ->
                             Log.d(TAG + "appBoot res:", response.toString())
 
-                            val code = response.getInt(AppConstant.CODE)
+                            val code = response.getInt(AppConstant().CODE)
 
                             if(code == 200){
 
-                                val jData:JSONObject = JSONObject(response.getString(AppConstant.DATA))
-                                val jApp:JSONObject = JSONObject(jData.getString(AppConstant.APP))
+                                val jData:JSONObject = JSONObject(response.getString(AppConstant().DATA))
+                                val jApp:JSONObject = JSONObject(jData.getString(AppConstant().APP))
 
-                                val updateAvailable : Boolean = jApp.getBoolean(AppConstant.UPDATE_AVAILABLE)
+                                val updateAvailable : Boolean = jApp.getBoolean(AppConstant().UPDATE_AVAILABLE)
 
                                 if(updateAvailable){
 
-                                    val link : String = jApp.getString(AppConstant.UPDATE_LINK)
+                                    val link : String = jApp.getString(AppConstant().UPDATE_LINK)
                                     getUpdateAlert(link)
                                 }else{
                                     loadingHandler()
@@ -170,6 +169,9 @@ import org.json.JSONObject
     }
 
     private fun loadingHandler() {
+        Log.d(TAG + "check:","Handler" )
+        Log.d(TAG + "check:",UserAccessToken )
+
         if(TextUtils.isEmpty(UserAccessToken)){
             goToLogin()
         }else{
@@ -178,6 +180,8 @@ import org.json.JSONObject
     }
 
     private fun goToLogin() {
+
+        Log.d(TAG + "check:","Handler login" )
 
         if(sharedPrefManager.isFirstTimeLaunch()){
             val intent = Intent(this, WelcomeActivity::class.java)
@@ -191,6 +195,9 @@ import org.json.JSONObject
     }
 
     private fun goToHome(){
+
+        Log.d(TAG + "check:","Home" )
+        Log.d(TAG + "check:",userRole )
 
         if(!userRole.equals("")){
             val intent = Intent(this, HomeActivity::class.java)
