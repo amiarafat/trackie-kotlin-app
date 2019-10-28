@@ -1,9 +1,215 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLayoutTeamOwnerInvitation"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.TeamOwnerInvitationActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <!-- invite people status -->
+        <LinearLayout
+            android:id="@+id/llInvitePeopleStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/activity_margin"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Invite people in your team"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Add people from your contact number or add people manually to invite in your team.
+You can always invite multiple people in your team" />
+
+            <Button
+                android:id="@+id/btnInvitePeopleLayout"
+                android:layout_width="200dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_margin="32dp"
+                android:background="@drawable/bg_rounded_blue"
+                android:text="Invite People"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite" />
+
+
+
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/rlInvitePeopleStatus"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <!-- permission -->
+            <LinearLayout
+                android:id="@+id/llContactPermissionStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Allow Your Contact"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="To get started, allow Trackie to access
+your contacts." />
+
+                <Button
+                    android:id="@+id/btnAllowContactPermission"
+                    android:layout_width="200dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="16dp"
+                    android:background="@drawable/bg_rounded_blue"
+                    android:text="Allow Access"
+                    android:textColor="@color/colorWhite" />
+
+            </LinearLayout>
+
+            <!-- new and phone contact -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <TextView
+                    android:id="@+id/labelNewContact"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:text="New Contact" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="32dp"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:id="@+id/rlCountryPrefix"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/bg_oval_ash">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="2dp"
+                            android:layout_marginLeft="2dp"
+                            android:text="+880"
+                            android:textSize="12dp" />
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="2dp"
+                            android:layout_marginRight="2dp"
+                            android:tint="@color/colorBlack"
+                            app:srcCompat="@drawable/ic_keyboard_arrow_down" />
+
+                    </RelativeLayout>
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:id="@+id/etPhoneNumber"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_toStartOf="@+id/btnAddNewContact"
+                        android:layout_toLeftOf="@+id/btnAddNewContact"
+                        android:layout_toEndOf="@+id/rlCountryPrefix"
+                        android:layout_toRightOf="@+id/rlCountryPrefix"
+                        android:background="@drawable/bg_rounded_ash"
+                        android:inputType="phone"
+                        android:paddingStart="16dp"
+                        android:paddingLeft="16dp">
+
+
+                    </EditText>
+
+                    <Button
+                        android:id="@+id/btnAddNewContact"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:background="@drawable/bg_rounded_blue"
+                        android:text="Add"
+                        android:textAllCaps="false"
+                        android:textColor="@color/colorWhite" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:background="@color/colorDarkAsh" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:text="Phone Contact" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewContactList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:gravity="end"
+            android:id="@+id/tvLabelSkip"
+            android:text="SKIP"
+            android:textColor="@color/colorBlue"
+
+            />
+    </RelativeLayout>
+
+
+    <include layout="@layout/layout_bottom_sheet_team_owner_invitation"/>
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -11,4 +11,7 @@
     <string name="info_bip_apiKey">1488a2f55c4d83739083f779821e55e0-fd8c45d1-cc8a-45e1-9d2b-535e6cc88e38</string>
     <string name="info_bip_">Basic bXV2LmFzaWE6QnNtNEhYZVNSZFYyZUpwcQ==</string>
     <string name="title_activity_registration">RegistrationActivity</string>
+    <string name="contact_permission_denied_explanation">Contact permission was denied, but is needed for core functionality.</string>
+    <string name="settings">Settings</string>
+    <string name="contact_permission_rationale">Contact permission is needed for core functionality</string>
 </resources>
