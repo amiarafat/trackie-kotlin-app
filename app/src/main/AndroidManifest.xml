@@ -21,10 +21,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".fragment.MenuFragment"></activity>
+        <activity android:name=".fragment.HomeFragment" />
+        <activity android:name=".fragment.TeamOwnerHomeFragment" />
+        <activity android:name=".fragment.NotificationFragment" />
         <activity
             android:name=".activity.RegistrationActivity"
             android:label="@string/title_activity_registration"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activity.TeamMemberInvitationActivity" />
         <activity android:name=".activity.TeamOwnerInvitationActivity" />
         <activity android:name=".activity.RoleManagementActivity" />
@@ -47,7 +51,6 @@
             android:authorities="com.arafat.trackiekotlinapp"
             android:enabled="true"
             android:exported="true" />
-
     </application>
 
 </manifest>
